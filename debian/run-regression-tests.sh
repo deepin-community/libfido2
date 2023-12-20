@@ -28,6 +28,7 @@ echo "Running regression tests"
 cd ${regression_test_dir}
 cmake -DCMAKE_BUILD_TYPE=Debug ../../
 make
+make regress
 echo "SUCCESS: regression tests passed"
 
 # the way the tests are run, by just calling the built binary in a
@@ -45,12 +46,10 @@ if [ "$result" -ne 0 ]; then
     echo "ERROR: failure was not injected correctly into regress/cred.c"
     exit $result
 fi
-rm -rf ${regression_test_dir}
-mkdir ${regression_test_dir}
 cd ${regression_test_dir}
-cmake -DCMAKE_BUILD_TYPE=Debug ../../
+make
 result=0
-make || result=$?
+make regress || result=$?
 if [ "$result" -ne 0 ]; then
     echo "SUCCESS: the expected failure happened"
     result=0

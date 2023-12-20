@@ -2,6 +2,7 @@
  * Copyright (c) 2020-2021 Yubico AB. All rights reserved.
  * Use of this source code is governed by a BSD-style
  * license that can be found in the LICENSE file.
+ * SPDX-License-Identifier: BSD-2-Clause
  */
 
 #include <assert.h>
@@ -104,7 +105,7 @@ pack(uint8_t *ptr, size_t len, const struct param *p)
 			goto fail;
 
 	if ((cbor_len = cbor_serialize_alloc(array, &cbor,
-	    &cbor_alloc_len)) > len) {
+	    &cbor_alloc_len)) == 0 || cbor_len > len) {
 		cbor_len = 0;
 		goto fail;
 	}
@@ -127,7 +128,7 @@ size_t
 pack_dummy(uint8_t *ptr, size_t len)
 {
 	struct param dummy;
-	uint8_t	blob[4096];
+	uint8_t	blob[MAXCORPUS];
 	size_t blob_len;
 
 	memset(&dummy, 0, sizeof(dummy));
@@ -175,15 +176,20 @@ static void
 manifest(const struct param *p)
 {
 	size_t ndevs, nfound;
-	fido_dev_info_t *devlist;
+	fido_dev_info_t *devlist = NULL, *devlist_set = NULL;
 	int16_t vendor_id, product_id;
+	fido_dev_io_t io;
+	fido_dev_transport_t t;
 
+	memset(&io, 0, sizeof(io));
+	memset(&t, 0, sizeof(t));
 	set_netlink_io_functions(fd_read, fd_write);
 	set_wire_data(p->netlink_wiredata.body, p->netlink_wiredata.len);
 	set_udev_parameters(p->uevent, &p->report_descriptor);
 
 	ndevs = uniform_random(64);
 	if ((devlist = fido_dev_info_new(ndevs)) == NULL ||
+	    (devlist_set = fido_dev_info_new(1)) == NULL ||
 	    fido_dev_info_manifest(devlist, ndevs, &nfound) != FIDO_OK)
 		goto out;
 	for (size_t i = 0; i < nfound; i++) {
@@ -195,9 +201,13 @@ manifest(const struct param *p)
 		product_id = fido_dev_info_product(di);
 		consume(&vendor_id, sizeof(vendor_id));
 		consume(&product_id, sizeof(product_id));
+		fido_dev_info_set(devlist_set, 0, fido_dev_info_path(di),
+		    fido_dev_info_manufacturer_string(di),
+		    fido_dev_info_product_string(di), &io, &t);
 	}
 out:
 	fido_dev_info_free(&devlist, ndevs);
+	fido_dev_info_free(&devlist_set, 1);
 }
 
 void
