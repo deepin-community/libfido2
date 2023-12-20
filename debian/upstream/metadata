@@ -1,0 +1,6 @@
+---
+Bug-Database: https://github.com/Yubico/libfido2/issues
+Bug-Submit: https://github.com/Yubico/libfido2/issues/new
+Repository: https://github.com/Yubico/libfido2.git
+Repository-Browse: https://github.com/yubico/libfido2
+Security-Contact: https://github.com/yubico/libfido2/tree/HEAD/SECURITY.md

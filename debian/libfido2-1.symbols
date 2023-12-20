@@ -11,14 +11,23 @@ libfido2.so.1 libfido2-1 #MINVER#
  es256_pk_from_ptr@Base 1.1.0
  es256_pk_new@Base 1.1.0
  es256_pk_to_EVP_PKEY@Base 1.1.0
+ es384_pk_free@Base 1.12.0
+ es384_pk_from_EC_KEY@Base 1.12.0
+ es384_pk_from_EVP_PKEY@Base 1.12.0
+ es384_pk_from_ptr@Base 1.12.0
+ es384_pk_new@Base 1.12.0
+ es384_pk_to_EVP_PKEY@Base 1.12.0
  fido_assert_allow_cred@Base 1.1.0
  fido_assert_authdata_len@Base 1.1.0
  fido_assert_authdata_ptr@Base 1.1.0
+ fido_assert_authdata_raw_len@Base 1.14.0
+ fido_assert_authdata_raw_ptr@Base 1.14.0
  fido_assert_blob_len@Base 1.7.0
  fido_assert_blob_ptr@Base 1.7.0
  fido_assert_clientdata_hash_len@Base 1.1.0
  fido_assert_clientdata_hash_ptr@Base 1.1.0
  fido_assert_count@Base 1.1.0
+ fido_assert_empty_allow_list@Base 1.13.0
  fido_assert_flags@Base 1.1.0
  fido_assert_free@Base 1.1.0
  fido_assert_hmac_secret_len@Base 1.1.0
@@ -42,6 +51,7 @@ libfido2.so.1 libfido2-1 #MINVER#
  fido_assert_set_sig@Base 1.1.0
  fido_assert_set_up@Base 1.2.0
  fido_assert_set_uv@Base 1.2.0
+ fido_assert_set_winhello_appid@Base 1.14.0
  fido_assert_sig_len@Base 1.1.0
  fido_assert_sig_ptr@Base 1.1.0
  fido_assert_sigcount@Base 1.3.0
@@ -82,6 +92,9 @@ libfido2.so.1 libfido2-1 #MINVER#
  fido_cbor_info_algorithm_cose@Base 1.8.0
  fido_cbor_info_algorithm_count@Base 1.8.0
  fido_cbor_info_algorithm_type@Base 1.8.0
+ fido_cbor_info_certs_len@Base 1.12.0
+ fido_cbor_info_certs_name_ptr@Base 1.12.0
+ fido_cbor_info_certs_value_ptr@Base 1.12.0
  fido_cbor_info_extensions_len@Base 1.1.0
  fido_cbor_info_extensions_ptr@Base 1.1.0
  fido_cbor_info_free@Base 1.1.0
@@ -89,15 +102,22 @@ libfido2.so.1 libfido2-1 #MINVER#
  fido_cbor_info_maxcredbloblen@Base 1.7.0
  fido_cbor_info_maxcredcntlst@Base 1.5.0
  fido_cbor_info_maxcredidlen@Base 1.5.0
+ fido_cbor_info_maxlargeblob@Base 1.11.0
  fido_cbor_info_maxmsgsiz@Base 1.1.0
+ fido_cbor_info_maxrpid_minpinlen@Base 1.12.0
+ fido_cbor_info_minpinlen@Base 1.12.0
  fido_cbor_info_new@Base 1.1.0
+ fido_cbor_info_new_pin_required@Base 1.12.0
  fido_cbor_info_options_len@Base 1.1.0
  fido_cbor_info_options_name_ptr@Base 1.1.0
  fido_cbor_info_options_value_ptr@Base 1.1.0
  fido_cbor_info_protocols_len@Base 1.1.0
  fido_cbor_info_protocols_ptr@Base 1.1.0
+ fido_cbor_info_rk_remaining@Base 1.12.0
  fido_cbor_info_transports_len@Base 1.8.0
  fido_cbor_info_transports_ptr@Base 1.8.0
+ fido_cbor_info_uv_attempts@Base 1.12.0
+ fido_cbor_info_uv_modality@Base 1.12.0
  fido_cbor_info_versions_len@Base 1.1.0
  fido_cbor_info_versions_ptr@Base 1.1.0
  fido_cred_aaguid_len@Base 1.5.0
@@ -111,6 +131,7 @@ libfido2.so.1 libfido2-1 #MINVER#
  fido_cred_clientdata_hash_len@Base 1.1.0
  fido_cred_clientdata_hash_ptr@Base 1.1.0
  fido_cred_display_name@Base 1.2.0
+ fido_cred_empty_exclude_list@Base 1.13.0
  fido_cred_exclude@Base 1.1.0
  fido_cred_flags@Base 1.1.0
  fido_cred_fmt@Base 1.1.0
@@ -201,7 +222,9 @@ libfido2.so.1 libfido2-1 #MINVER#
  fido_dev_info_product@Base 1.1.0
  fido_dev_info_product_string@Base 1.1.0
  fido_dev_info_ptr@Base 1.1.0
+ fido_dev_info_set@Base 1.10.0
  fido_dev_info_vendor@Base 1.1.0
+ fido_dev_io_handle@Base 1.10.0
  fido_dev_is_fido2@Base 1.1.0
  fido_dev_is_winhello@Base 1.8.0
  fido_dev_largeblob_get@Base 1.7.0
@@ -213,7 +236,9 @@ libfido2.so.1 libfido2-1 #MINVER#
  fido_dev_make_cred@Base 1.1.0
  fido_dev_minor@Base 1.1.0
  fido_dev_new@Base 1.1.0
+ fido_dev_new_with_info@Base 1.10.0
  fido_dev_open@Base 1.1.0
+ fido_dev_open_with_info@Base 1.10.0
  fido_dev_protocol@Base 1.1.0
  fido_dev_reset@Base 1.1.0
  fido_dev_set_io_functions@Base 1.1.0
