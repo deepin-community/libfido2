@@ -5,10 +5,10 @@ Maintainer: Debian Authentication Maintainers <pkg-auth-maintainers@lists.alioth
 Uploaders:
 	Colin Watson <cjwatson@debian.org>,
 	nicoo <nicoo@debian.org>
-Standards-Version: 4.6.2
+Standards-Version: 4.7.0
 Build-Depends:
 	debhelper-compat (= 13),
-	pkg-config,
+	pkgconf,
 	cmake (>= 3.14),
 	mandoc,
 	libcbor-dev,
