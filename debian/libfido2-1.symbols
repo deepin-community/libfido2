@@ -147,6 +147,7 @@ libfido2.so.1 libfido2-1 #MINVER#
  fido_cred_pubkey_ptr@Base 1.1.0
  fido_cred_rp_id@Base 1.1.0
  fido_cred_rp_name@Base 1.1.0
+ fido_cred_set_attobj@Base 1.15.0
  fido_cred_set_attstmt@Base 1.9.0
  fido_cred_set_authdata@Base 1.1.0
  fido_cred_set_authdata_raw@Base 1.3.0
@@ -176,6 +177,9 @@ libfido2.so.1 libfido2-1 #MINVER#
  fido_cred_verify@Base 1.1.0
  fido_cred_verify_self@Base 1.3.0
  fido_cred_x5c_len@Base 1.1.0
+ fido_cred_x5c_list_count@Base 1.15.0
+ fido_cred_x5c_list_len@Base 1.15.0
+ fido_cred_x5c_list_ptr@Base 1.15.0
  fido_cred_x5c_ptr@Base 1.1.0
  fido_credman_del_dev_rk@Base 1.2.0
  fido_credman_get_dev_metadata@Base 1.2.0

@@ -1,3 +1,11 @@
+libfido2 (1.15.0-1) unstable; urgency=medium
+
+  * Build-depend on pkgconf rather than pkg-config.
+  * New upstream release.
+  * Standards-Version: 4.7.0 (no changes required).
+
+ -- Colin Watson <cjwatson@debian.org>  Mon, 17 Jun 2024 12:33:55 +0100
+
 libfido2 (1.14.0-1) unstable; urgency=medium
 
   * New upstream release.
