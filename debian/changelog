@@ -1,3 +1,9 @@
+libfido2 (1.15.0-2) unstable; urgency=medium
+
+  * Rebuild with LTO enabled (dpkg vendor feature optimize/lto).
+
+ -- tunaichao <tunaichao@uniontech.com>  Thu, 10 Sep 2026 18:18:27 +0800
+
 libfido2 (1.15.0-1) unstable; urgency=medium
 
   * Build-depend on pkgconf rather than pkg-config.
